@@ -41,6 +41,18 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+// JWT
+//$app->configure('jwt');
+
+// Uncomment this line
+//$app->register(App\Providers\AuthServiceProvider::class);
+
+// Add this line
+//$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
+
+//$app->routeMiddleware([
+//    'auth' => App\Http\Middleware\Authenticate::class,
+//]);
 /*
 |--------------------------------------------------------------------------
 | Return The Application
