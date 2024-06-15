@@ -34,18 +34,18 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-//        $this->reportable(function (Throwable $e, Request $request) {
-//            if ($request->is('api/*')) {
-//                Log::error('Request error: ' . $e->getMessage());
-//                return match (true) {
-//                    $e instanceof AuthenticationException => $this->sendError(__('common.unauthorized'), null, Response::HTTP_UNAUTHORIZED),
-//                    $e instanceof NotFoundHttpException => $this->sendError(__('common.not_found'), null, Response::HTTP_NOT_FOUND),
-//                    $e instanceof MethodNotAllowedHttpException => $this->sendError(__('common.method_not_allowed'), null, Response::HTTP_METHOD_NOT_ALLOWED),
-//                    $e instanceof AccessDeniedHttpException => $this->sendError(__('common.forbidden'), null, Response::HTTP_FORBIDDEN),
-//                    $e instanceof HttpException => $this->sendError($e->getMessage(), null, $e->getStatusCode()),
-//                    default => $this->sendError(__('common.server_error')),
-//                };
-//            }
-//        });
+        $this->reportable(function (Throwable $e, Request $request) {
+            if ($request->is('api/*')) {
+                Log::error('Request error: ' . $e->getMessage());
+                return match (true) {
+                    $e instanceof AuthenticationException => $this->sendError(__('common.unauthorized'), null, Response::HTTP_UNAUTHORIZED),
+                    $e instanceof NotFoundHttpException => $this->sendError(__('common.not_found'), null, Response::HTTP_NOT_FOUND),
+                    $e instanceof MethodNotAllowedHttpException => $this->sendError(__('common.method_not_allowed'), null, Response::HTTP_METHOD_NOT_ALLOWED),
+                    $e instanceof AccessDeniedHttpException => $this->sendError(__('common.forbidden'), null, Response::HTTP_FORBIDDEN),
+                    $e instanceof HttpException => $this->sendError($e->getMessage(), null, $e->getStatusCode()),
+                    default => $this->sendError(__('common.server_error')),
+                };
+            }
+        });
     }
 }
