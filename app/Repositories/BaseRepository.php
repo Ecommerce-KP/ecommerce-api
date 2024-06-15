@@ -71,24 +71,22 @@ class BaseRepository implements BaseRepositoryInterface
     }
 
 
-    public function create(array $attributes)
+    public function create(array $attributes = [])
     {
-//        $attributes = $this->stripAllFields($attributes);
         return $this->model->create($attributes);
     }
 
-    public function update($ids, array $attributes)
+    public function update($ids, array $attributes = [])
     {
-//        $attributes = $this->stripAllFields($attributes);
         if (is_array($ids)) {
             return $this->model->whereIn('id', $ids)->update($attributes);
         }
 
-        $object = $this->model->findOrFail($ids);
-        $object->fill($attributes);
-        $object->save();
+//        $object = $this->model->findOrFail($ids);
+//        $object->fill($attributes);
+//        $object->save();
 
-        return $object;
+        return $this->model->find($ids)?->update($attributes);
     }
 
     public function stripAllFields($fields)
@@ -96,10 +94,8 @@ class BaseRepository implements BaseRepositoryInterface
         foreach ($fields as $key => $value) {
             if (is_array($value)) {
                 $fields[$key] = $this->stripAllFields($value);
-            } else {
-                if (is_string($value)) {
-                    $fields[$key] = strip_tags($value);
-                }
+            } else if (is_string($value)) {
+                $fields[$key] = strip_tags($value);
             }
         }
 

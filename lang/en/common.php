@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'get_data_success' => 'Retrieving data successfully!',
+    'server_error' => 'An error occurred. Please try again later!',
+    'created' => 'Record creation successful!',
+    'updated' => 'Record update successful!',
+    'deleted' => 'Record deletion successful!',
+    'not_found' => 'Record not found!',
+    'record_delete' => 'The data has already been deleted.',
+    'access_denied' => 'You are not authorized to perform this action!',
+    'invalid_data' => 'Invalid data',
+    'request_successful' => 'Request successful!',
+    'request_failed' => 'Request failed!',
+    'currency_unit' => 'yen',
+    'updated_at' => 'Updated at',
+    'status_valid' => 'Status is valid and cannot be deleted. ',
+    'forbidden' => 'You cant access it because your administrator privileges have changed. Please reload the page.',
+    'password_register' => 'Password entered by yourself',
+    'method_not_allowed' => 'The method specified in the request is invalid',
+    'unauthorized' => 'Unauthorized',
+    'keycloak_guard_exception' => 'Authentication failed',
+    'resource_access_not_allowed_exception' => 'Illegal resource access exception',
+    'user_not_found_exception' => 'Account not found on system',
+    'token_exception' => 'Invalid token',
+    'partial_content' => 'Some parts have not been updated!',
+];
